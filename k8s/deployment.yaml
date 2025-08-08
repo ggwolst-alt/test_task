@@ -1,0 +1,19 @@
+apiVersion: apps/v1.   # Определяем версию API для деплоймента
+kind: Deployment.  # Определяем тип ресурса как Deployment
+metadata:
+  name: nginx-deployment.   # Имя деплоймента
+spec:
+  replicas: 1.    # Количество реплик
+  selector:
+    matchLabels:     # Селектор для выбора подов
+      app: nginx
+  template:      # Шаблон для создания подов
+    metadata:
+      labels:
+        app: nginx.     # Метки для подов
+    spec:
+      containers:       # Список контейнеров в поде
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80

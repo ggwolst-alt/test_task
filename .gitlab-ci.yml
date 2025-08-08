@@ -1,0 +1,8 @@
+stages:   #Назначаем стадии
+  - test 
+
+test_nginx:   # Тестируем nginx
+  stage: test.   # Название задачи
+  script:     # Команды для тестирования
+    - echo "Проверка установлен ли nginx"
+    - which nginx && nginx -v
